@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{%static 'CSS/style.css'%}">
+    <title>Movies</title>
+</head>
+<body>
+    <div class="container">
+        <div class="movies">
+            {% for movie in movies %}
+            <div class="movie">
+                <div class="image">
+                    <img  src=../Media/{{movie.image}} alt="">
+                </div>
+                <div class="options">
+                    <h3>{{movie.title}}</h3>
+                    <h3>{{movie.name}}</h3>
+                    <h3>{{movie.score}}</h3>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <button class="btn btn-primary"><a class='list' href="{% url 'addmovie' %}">Film əlavə et</a></button>
+        <button class="btn btn-primary"><a class='list' href="{% url 'withapi' %}">API</a></button>
+    </div>
+
+</body>
+</html>
